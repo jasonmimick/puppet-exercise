@@ -7,9 +7,19 @@ Attach the code you wrote to your response and answer the following questions. L
 
 Questions
 1. Describe the most difficult/painful hurdle you had to overcome in implementing your solution.
+
+  The most difficult part was deciding on whether to install nginx from prebuilt binaries or to build from source. I opted to build from source, since using the various package managers would make it more difficult to control where things install and would also require lots of checking to see what kind of a system the tool is running on (Debian/Red Hat/etc). The most painful hurdle was adding all the error handling to gracefully tell users what's wrong.
+
 2. Describe which puppet related concept you think is the hardest for new users to grasp.
+
 3. Where did you go to find information to help you in the build process?
+
+  Just used Google searches to find nginx source and configuration info and also to lookup various bash script syntax stuff I couldn't remember.
+
 4. In a couple paragraphs explain what automation means to you and why it is important to an organization's infrastructure design strategy.
+
+  Automation is important for a variety of reasons, the first and foremost however is that humans are prone to make mistakes - especially when attempting to repeat a complex task. Automation takes the guess-work out of the equation. Rather than relying on luck or 'the one guy who knows' by automating the managment of resources organizations can begin confidently perform such household tasks.
+
 Have fun and good luck. We look forward to receiving your completed tasks.
 
 Challenge Design
@@ -22,8 +32,7 @@ Challenge Design
  * Dependencies
 	* bash	- solution is a bash shell executable
 	* curl	- curl used to download resources from the internet
-	* package-manager (apt/yum) - to install nginx
-	* 
+	* development tools - cc, make, etc to build nginx from source 
 
  * Usage
 	$puppet-exercise [-h|--help] [-v|--verbose] <command> <options>

@@ -8,6 +8,7 @@ usage()
 usage: puppet-exercise [-h|--help] [-v|--verbose] <command> <install_dir>
 
 Install an instance of nginx to <install_dir> and configure it to serve on port 8080.
+If <install_dir> is not specified, then nginx will install to ./pup-ex.
 
 Available commands are:
   status	Display status
@@ -26,7 +27,7 @@ remove_dir()
 {
 	dir=$1
 	debug=$2
-	if [ $debug = "1" ]; then 
+	if [ $debug=1 ]; then 
 		rmflags="rf"
 	else
 		rmflags="rfv"
@@ -38,7 +39,7 @@ download()
 	url=$1
 	dest=$2
 	debug=$3
-	if [ $debug = "1" ]; then
+	if [ $debug=1 ]; then
 		verbose="-v"
 	else
 		verbose=""
@@ -56,7 +57,7 @@ install()
 
 	# If already installed, do nothing!
 	if [ -d "$arg/nginx-root" ]; then
-		if [ $debug = "1"]; then
+		if [ $debug=1 ]; then
 			echo "nginx already installed to $arg"
 		fi
 		return
@@ -89,8 +90,8 @@ install()
 
 uninstall() 
 {
-	$arg=$1
-	$debug=$1
+	arg=$1
+	debug=$1
 	echo "uninstall arg=$arg debug=$debug"
 	remove_dir $arg $debug
 }
@@ -126,6 +127,11 @@ if [ $command = 0 ]; then
   exit
 fi
 
+if [ -z $command_arg ]; then
+   command_arg=$(readlink -f .)/pup-ex
+else 
+   command_arg=$(readlink -f $command_arg)
+fi
 
 case $command in 
   install)
