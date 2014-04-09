@@ -17,7 +17,7 @@ Challenge Design
 
  * Assumptions
 	* Solution only needs to run on non-Windows operating systems. We'll assume either a REDHAT or Debian based system.
-	* "an executable" - since puppet is an interpreted Ruby 'script' we'll build an 'execuatable' bash script
+	* "an executable" - since puppet is an interpreted Ruby 'script' we'll build an 'executable' bash script
 
  * Dependencies
 	* bash	- solution is a bash shell executable
@@ -42,4 +42,17 @@ Challenge Design
  * Design
 
 
+  The program flows as follows:
+  
+  1) Parse can validate command line parameters
+  2) Execute command
+    status	- Attempt to get status of nginx server running from PUPPET_EXERCISE_INSTALL_DIR
+		  and report to user
+    install	- If already installed, report and do nothing
+		- Remove any contents of ./.pup-ex
+		- Download nginx and web-site into ./.pup-ex
+		- Unpack and install to PUPPET_EXERCISE_INSTALL_DIR
+		- Record actions in ./.pup-ex/log
+    uninstall	- Stop nginx if running
+		- Remove contents of PUPPET_EXERCISE_INSTALL_DIR
 
