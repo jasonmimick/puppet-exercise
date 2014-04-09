@@ -1,7 +1,16 @@
 #!/bin/bash -f
+# 
+# puppet-exercise.sh
+# jmimick@gmail.com
+#
+# A simple script to download and install an nginx web server and
+# a static web-site form github
+#
+
 # stop running if any errors
 set -e	
 
+# helper routines start
 usage()
 {
     cat << 'end-of-usage'
@@ -18,11 +27,15 @@ Available commands are:
 end-of-usage
 }
 
-# helper routines start
+# report the status of a puppet-exercise.sh installation
+# usage: status <path to puppet-exercise install>
 status()
 {
 	echo "status"
 }
+
+# remove a directory
+# usage: remove_dir <path to remove> <debug flag=1>
 remove_dir()
 {
 	dir=$1
