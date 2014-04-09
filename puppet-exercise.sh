@@ -89,11 +89,21 @@ install()
   # crank her up
   $arg/nginx-root/sbin/nginx
   echo "Started nginx on port 8080."
+
+  #test
+  curl -X GET http://localhost:8080 > ./.pup-ex/test.index.html
+  different=$(diff --brief ./.pup-ex/test.index.html ./.pup-ex/exercise-webpage/index.html)
+  if [ -n "$different" ]; then
+    echo "Test GET of index.html failed. Check $install_log."
+  else
+    echo "Test GET of index.html OK" >> $arg/puppet-exercise-info
+  fi
   echo "puppet-exercise done at $(date)" >> $arg/puppet-exercise-info
 }
 
 uninstall() 
 {
+  $1/nginx-root/sbin/nginx -s stop
   rm -rf $1 
 }
 #end of helper routines
