@@ -18,11 +18,27 @@ Questions
 
 4. In a couple paragraphs explain what automation means to you and why it is important to an organization's infrastructure design strategy.
 
-  Automation is the process of enabling systems, software, and processes to act independently. For example, consider the scenario of a developement team starting a new project and requiring a new development server. In a non-automated world, dozens of manual steps would be required - allocation of hardware, operating system installation and update, application of corporate security policies, dependecy checks, etc. Automation frameworks reduce tasks like this to "pushing a button". Each step in a process is automated and made repeatable. Smaller tasks can be joined together to quickly build new more complex automations.
+  Automation is the process of enabling systems, software, and processes to act independently. For example, consider the scenario of a developement team starting a new project and requiring a new development server. 
+In a non-automated world, dozens of manual steps would be required - allocation of hardware, operating system installation and update, application of corporate security policies, dependecy checks, etc. 
+Automation frameworks reduce tasks like this to "pushing a button". 
+Each step in a process is automated and made repeatable. Ideally, these repeatable processes are packaged into small tasks which can be joined together to quickly build new more complex automations.
 
-  Automation is important for a variety of reasons, the first and foremost however is that humans are prone to make mistakes - especially when attempting to repeat a complex task. By automating processes organizations are able to reduce risk, prevent accidents, and focus on business goals rather than "housework". Modern enterprises need to be able to react quickly and confidently to be successful. By utilizing a consistent automation framework tangential tasks can be commoditized to a degree. Meaning, the amount of effort spent on tasks such as software builds, testing and deployment is reduced. The task of rapidly scaling up or down can be quantified and thus assuredly executed. Additionally, automation frameworks enable sound engineering practices to be applied to operational tasks. Your product, your infrastructure, and your processes all become "code" - something which technologists understand.
+  Automation is important for a variety of reasons, the first and foremost however is we humans are prone to make mistakes - especially when attempting to repeat a complex tasks. 
+By automating processes organizations are able to reduce risk, prevent accidents, and focus on core business goals rather than "housework". 
+Modern enterprises need to be able to react quickly and confidently to be successful. 
+By utilizing a consistent automation framework tangential tasks can be commoditized to a degree. 
+Meaning, the amount of effort spent on tasks such as software builds, testing and deployment is reduced. The task of rapidly scaling up or down can be quantified and thus assuredly executed. 
+Additionally, automation frameworks enable sound engineering practices to be applied to operational tasks. 
+Your product, your infrastructure, and your processes all become "code" - something which technologists understand.
 
-  It is quick to see the potential impact of automation frameworks. Not only are errors reduced and new features rolled out quicker, the amount of resources needed to manage infrastructure is reduced. These resources can then be redirected to tasks which directly effect your businesses bottom-line. Organizations can also benefit from the auto-documentation which results from automation. The actual processes of automating things produces a defacto documentation of the process itself. Rather then encoding processes in Word documents and then implementing in another medium the two are merged. The days of "the spec is outdated" are in the rearview mirror. Embracing automation allows organizations to quickly reap these kind of benefits leading to happier employees and customers.  
+  It is quick to see the potential impact of automation frameworks. 
+Not only are errors reduced and new features rolled out quicker, the amount of resources needed to manage infrastructure is reduced. 
+These resources can then be redirected to tasks which directly effect your businesses bottom-line. 
+Organizations can also benefit from the auto-documentation which results from automation. 
+The actual processes of automating things produces a defacto documentation of the process itself. 
+Rather then encoding processes in Word documents and then implementing in another medium the two are merged. 
+The days of "the spec is outdated" are in the rearview mirror. 
+Embracing automation allows organizations to quickly reap these kind of benefits leading to happier employees and customers.  
   
 
 Have fun and good luck. We look forward to receiving your completed tasks.
@@ -40,17 +56,14 @@ Challenge Design
 	* development tools - cc, make, etc to build nginx from source 
 
  * Usage
-	$puppet-exercise [-h|--help] [-v|--verbose] <command> <options>
+	$puppet-exercise [-h|--help] [-v|--verbose] <command> <install_dir>
 	Available commands:
 	  status	Display status
 	  install	Install nginx and web-site
 	  uninstall	Remove the installation
 	
-	Options:
-	  --install_dir	Override the PUPPET_EXERCISE_INSTALL_DIR evironment variable
+	  <install_dir> Directory to install nginx into	
 
-	Environment variables:
-	PUPPET_EXERCISE_INSTALL_DIR	Defaults to ./pup-ex-nginx
 
  * Design
 
@@ -59,13 +72,16 @@ Challenge Design
   
   1) Parse can validate command line parameters
   2) Execute command
-    status	- Attempt to get status of nginx server running from PUPPET_EXERCISE_INSTALL_DIR
+    status	- Attempt to get status of nginx server running from <install_dir> 
 		  and report to user
     install	- If already installed, report and do nothing
 		- Remove any contents of ./.pup-ex
 		- Download nginx and web-site into ./.pup-ex
-		- Unpack and install to PUPPET_EXERCISE_INSTALL_DIR
-		- Record actions in ./.pup-ex/log
+		- Unpack and build nginx
+		- Install nginx into <install_dir>/nginx-root
+		- Update nginx configuration to listen on port 8080
+		- Copy web-site into <install_dir>/nginx-root/html
+		- Record actions in ./.pup-ex/install.log
     uninstall	- Stop nginx if running
-		- Remove contents of PUPPET_EXERCISE_INSTALL_DIR
+		- Remove contents of <install_dir> 
 

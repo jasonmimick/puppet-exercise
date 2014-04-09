@@ -29,6 +29,18 @@ Available commands are:
 end-of-usage
 }
 
+# check for dependencies
+check_dependencies()
+{
+  for cmd in "curl" "git" "make" 
+  do
+    which_cmd=$(which $cmd)
+    if [[ ! -x $which_cmd ]]; then
+	echo "puppet-exercise requires $cmd. Please install and retry."
+	return 1
+    fi
+  done
+}
 # report the status of a puppet-exercise.sh installation
 # usage: status <path to puppet-exercise install>
 status()
@@ -109,6 +121,8 @@ uninstall()
 #end of helper routines
 
 # main script
+check_dependencies || exit 1
+
 options=$@
 arguments=($options)
 index=0
