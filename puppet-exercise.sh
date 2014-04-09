@@ -16,11 +16,6 @@ end-of-usage
 }
 
 # helper routines start
-config()
-{
-  git config --get-regexp shed
-}
-
 status()
 {
 	echo "status"
@@ -29,19 +24,19 @@ remove_dir()
 {
 	dir=$1
 	debug=$2
-	if [ $debug = 1 ]; then 
+	if [ $debug = "1" ]; then 
 		rmflags="rf"
 	else
 		rmflags="rfv"
 	fi
-	rm -$rmflags $dir
+	sudo rm -$rmflags $dir
 }
 download()
 {
 	url=$1
 	dest=$2
 	debug=$3
-	if [ $debug = 1 ]; then
+	if [ $debug = "1" ]; then
 		verbose="-v"
 	else
 		verbose=""
@@ -56,16 +51,38 @@ install()
 	arg=$1
 	debug=$2
 	echo "install arg=$arg debug=$debug"
-	remove_dir $arg $debug
+
+	# If already installed, do nothing!
+	if [ -d "$arg/nginx-root" ]; then
+		if [ $debug = "1"]; then
+			echo "nginx already installed to $arg"
+		fi
+		return
+	fi
+	current_dir=$(pwd)
 	remove_dir ./.pup-ex $debug
 	mkdir ./.pup-ex
+	# download source
 	nginx_src="http://nginx.org/download/nginx-1.5.13.tar.gz"
 	website_src="https://github.com/puppetlabs/exercise-webpage"
 	download $nginx_src ./.pup-ex $debug
 	cd ./.pup-ex
 	git clone $website_src
-	cd -	
-	tar xvf ./.pup-ex/nginx-1.5.13.tar.gz
+	# unpack and build nginx
+	tar xvf nginx-1.5.13.tar.gz
+	cd nginx-1.5.13 
+	./configure --prefix=$arg/nginx-root --without-http_rewrite_module --without-http_gzip_module --without-http_proxy_module
+	make
+	sudo make install
+	# update nginx config
+	sudo sed -i 's/        listen       80;/        listen       8080;/' $arg/nginx-root/conf/nginx.conf
+	# copy web-site files to serve
+	cd $current_dir
+	sudo cp ./.pup-ex/exercise-webpage/index.html $arg/nginx-root/html/index.html
+	# crank her up
+	sudo $arg/nginx-root/sbin/nginx
+	echo "Started nginx on port 8080."
+	sudo echo "puppet-exercise $(date)" > $arg/puppet-exercise-info
 }
 
 uninstall() 
@@ -73,6 +90,7 @@ uninstall()
 	$arg=$1
 	$debug=$1
 	echo "uninstall arg=$arg debug=$debug"
+	remove_dir $arg $debug
 }
 #end of helper routines
 
