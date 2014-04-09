@@ -91,7 +91,7 @@ install()
   echo "Started nginx on port 8080."
 
   #test
-  curl -X GET http://localhost:8080 > ./.pup-ex/test.index.html
+  curl -s -X GET http://localhost:8080 > ./.pup-ex/test.index.html
   different=$(diff --brief ./.pup-ex/test.index.html ./.pup-ex/exercise-webpage/index.html)
   if [ -n "$different" ]; then
     echo "Test GET of index.html failed. Check $install_log."
