@@ -1,4 +1,6 @@
 #!/bin/bash -f
+# stop running if any errors
+set -e	
 
 usage()
 {
@@ -73,16 +75,16 @@ install()
 	cd nginx-1.5.13 
 	./configure --prefix=$arg/nginx-root --without-http_rewrite_module --without-http_gzip_module --without-http_proxy_module
 	make
-	sudo make install
+	make install
 	# update nginx config
-	sudo sed -i 's/        listen       80;/        listen       8080;/' $arg/nginx-root/conf/nginx.conf
+	sed -i 's/        listen       80;/        listen       8080;/' $arg/nginx-root/conf/nginx.conf
 	# copy web-site files to serve
 	cd $current_dir
-	sudo cp ./.pup-ex/exercise-webpage/index.html $arg/nginx-root/html/index.html
+	cp ./.pup-ex/exercise-webpage/index.html $arg/nginx-root/html/index.html
 	# crank her up
-	sudo $arg/nginx-root/sbin/nginx
+	$arg/nginx-root/sbin/nginx
 	echo "Started nginx on port 8080."
-	sudo echo "puppet-exercise $(date)" > $arg/puppet-exercise-info
+	echo "puppet-exercise $(date)" > $arg/puppet-exercise-info
 }
 
 uninstall() 
