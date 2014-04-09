@@ -8,21 +8,23 @@
 #
 
 # stop running if any errors
-set -e	
+set -e  
 
 # helper routines start
 usage()
 {
     cat << 'end-of-usage'
-usage: puppet-exercise [-h|--help] [-v|--verbose] <command> <install_dir>
+usage: puppet-exercise [-h|--help] <command> <install_dir>
 
 Install an instance of nginx to <install_dir> and configure it to serve on port 8080.
 If <install_dir> is not specified, then nginx will install to ./pup-ex.
+Artifacts are downloaded to ./.pup-ex.
+Details of installation can be found in ./.pup-ex/install.log.
 
 Available commands are:
-  status	Display status
-  install	Install nginx and web-site
-  uninstall	Remove the installation
+  status  	Displays information on installation
+  install 	Installs nginx and web-site
+  uninstall	Removes the installation
 
 end-of-usage
 }
@@ -31,82 +33,68 @@ end-of-usage
 # usage: status <path to puppet-exercise install>
 status()
 {
-	echo "status"
+  dir=$1
+  if [ ! -f $dir/puppet-exercise-info ]; then
+    echo "$dir does not appear to be a valid puppet-exercise installation."
+    return
+  fi
+  cat $dir/puppet-exercise-info
+  if [ -e $dir/nginx-root/logs/nginx.pid ]; then
+    nginx_pid=$(cat $dir/nginx-root/logs/nginx.pid)
+    started_at=$(ps -o stime= -p 27409)
+    echo "nginx pid=$nginx_pid running, started at $started_at"
+  else
+    echo "nginx not running from $arg/nginx-root"
+  fi
 }
 
-# remove a directory
-# usage: remove_dir <path to remove> <debug flag=1>
-remove_dir()
-{
-	dir=$1
-	debug=$2
-	if [ $debug=1 ]; then 
-		rmflags="rf"
-	else
-		rmflags="rfv"
-	fi
-	sudo rm -$rmflags $dir
-}
-download()
-{
-	url=$1
-	dest=$2
-	debug=$3
-	if [ $debug=1 ]; then
-		verbose="-v"
-	else
-		verbose=""
-	fi
-	cd $dest
-	curl $verbose -X GET -O $url 
-	cd -
-}
-
+# installs nginx and web-site to a directory
+# usages: install <dest> 
 install() 
 {
-	arg=$1
-	debug=$2
-	echo "install arg=$arg debug=$debug"
-
-	# If already installed, do nothing!
-	if [ -d "$arg/nginx-root" ]; then
-		if [ $debug=1 ]; then
-			echo "nginx already installed to $arg"
-		fi
-		return
-	fi
-	current_dir=$(pwd)
-	remove_dir ./.pup-ex $debug
-	mkdir ./.pup-ex
-	# download source
-	nginx_src="http://nginx.org/download/nginx-1.5.13.tar.gz"
-	website_src="https://github.com/puppetlabs/exercise-webpage"
-	download $nginx_src ./.pup-ex $debug
-	cd ./.pup-ex
-	git clone $website_src
-	# unpack and build nginx
-	tar xvf nginx-1.5.13.tar.gz
-	cd nginx-1.5.13 
-	./configure --prefix=$arg/nginx-root --without-http_rewrite_module --without-http_gzip_module --without-http_proxy_module
-	make
-	make install
-	# update nginx config
-	sed -i 's/        listen       80;/        listen       8080;/' $arg/nginx-root/conf/nginx.conf
-	# copy web-site files to serve
-	cd $current_dir
-	cp ./.pup-ex/exercise-webpage/index.html $arg/nginx-root/html/index.html
-	# crank her up
-	$arg/nginx-root/sbin/nginx
-	echo "Started nginx on port 8080."
-	echo "puppet-exercise $(date)" > $arg/puppet-exercise-info
+  arg=$1
+  # If already installed, do nothing!
+  if [ -d "$arg/nginx-root" ]; then
+      echo "nginx already installed to $arg"
+    return
+  fi
+  mkdir $arg
+  echo "puppet-exercise started at $(date)" > $arg/puppet-exercise-info
+  current_dir=$(pwd)
+  rm -rf ./.pup-ex
+  mkdir ./.pup-ex
+  install_log=$(readlink -f ./.pup-ex/install.log)
+  touch $install_log
+  cd ./.pup-ex
+  # download source
+  nginx_src="http://nginx.org/download/nginx-1.5.13.tar.gz"
+  website_src="https://github.com/puppetlabs/exercise-webpage"
+  curl -vs -X GET -O $nginx_src 2>$install_log 
+  echo "Downloaded nginx source from: $nginx_src" >> $arg/puppet-exercise-info
+  git clone $website_src > $install_log 2>&1
+  echo "Cloned web site from $website_src" >> $arg/puppet-exercise-info
+  # unpack and build nginx
+  tar xf nginx-1.5.13.tar.gz
+  cd nginx-1.5.13 
+  ./configure --prefix=$arg/nginx-root --without-http_rewrite_module --without-http_gzip_module --without-http_proxy_module \
+	> $install_log 2>&1
+  make >> $install_log 2>&1
+  make install >> $install_log 2>&1
+  # update nginx config
+  sed -i 's/        listen       80;/        listen       8080;/' $arg/nginx-root/conf/nginx.conf
+  echo "Updated nginx config to listen on port 8080" >> $arg/puppet-exercise-info
+  # copy web-site files to serve
+  cd $current_dir
+  cp ./.pup-ex/exercise-webpage/index.html $arg/nginx-root/html/index.html
+  # crank her up
+  $arg/nginx-root/sbin/nginx
+  echo "Started nginx on port 8080."
+  echo "puppet-exercise done at $(date)" >> $arg/puppet-exercise-info
 }
 
 uninstall() 
 {
-	arg=$1
-	debug=$1
-	echo "uninstall arg=$arg debug=$debug"
-	remove_dir $arg $debug
+  rm -rf $1 
 }
 #end of helper routines
 
@@ -116,21 +104,18 @@ arguments=($options)
 index=0
 command=0
 command_arg=0
-namespace=0
-debug=0
 for arg in $options
 do
   index=`expr $index + 1`
   case $arg in
-    -v|--verbose) debug=1;;
     -h|--help) usage 
                exit;;
   install) command="install" 
            command_arg=${arguments[index]};;
   uninstall)  command="uninstall"
            command_arg=${arguments[index]};;
-      status) status
-			  exit;;
+      status) command="status"
+           command_arg=${arguments[index]};;
   esac
 done
 
@@ -147,8 +132,10 @@ else
 fi
 
 case $command in 
+  status)
+    status $command_arg;;
   install)
-	install $command_arg $debug;;
+    install $command_arg;;
   uninstall)
-    uninstall $command_arg $debug;;
+    uninstall $command_arg;;
 esac
