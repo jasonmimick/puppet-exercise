@@ -26,14 +26,13 @@ Challenge Design
 	* 
 
  * Usage
-	$puppet-exercise <command> <options>
+	$puppet-exercise [-h|--help] [-v|--verbose] <command> <options>
 	Available commands:
 	  status	Display status
 	  install	Install nginx and web-site
 	  uninstall	Remove the installation
 	
 	Options:
-	  --debug	Enable verbose debugging info
 	  --install_dir	Override the PUPPET_EXERCISE_INSTALL_DIR evironment variable
 
 	Environment variables:
