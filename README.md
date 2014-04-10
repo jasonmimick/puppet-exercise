@@ -1,22 +1,26 @@
 puppet-exercise
 ===============
 
-Challenge
----------
-  Using your language or tool of choice automate the installation of a nginx web server, serving a website over port 8080, and populated using the data found athttps://github.com/puppetlabs/exercise-webpage. Please do not perform this exercise on the Windows operating system. Successful completion of this is an executable that reliably sets up the components needed to serve the content requested over port 8080, in a single run of and subsequent executions does not cause harm to functionality.
+### Challenge ###
+  Using your language or tool of choice automate the installation of a nginx web server, serving a website over port 8080, and populated using the data found at
+https://github.com/puppetlabs/exercise-webpage. 
+Please do not perform this exercise on the Windows operating system. 
+Successful completion of this is an executable that reliably sets up the components needed to serve the content requested over port 8080, in a single run of and subsequent executions does not cause harm to functionality.
 
 Attach the code you wrote to your response and answer the following questions. Limit your answers to a single page.
 
 ### Questions ###
 1. Describe the most difficult/painful hurdle you had to overcome in implementing your solution.
 
-  The most difficult part was deciding on whether to install nginx from prebuilt binaries or to build from source. I opted to build from source, since using the various package managers would make it more difficult to control where things install and would also require lots of checking to see what kind of a system the tool is running on (Debian/Red Hat/etc). The most painful hurdle was adding all the error handling to gracefully tell users what's wrong.
+  The most difficult part was deciding on whether to install nginx from prebuilt binaries or to build from source. 
+I opted to build from source, since using the various package managers would make it more difficult to control where things install and would also require lots of checking to see what kind of a system the tool is running on (Debian/Red Hat/etc). 
+The most painful hurdle was adding all the error handling to gracefully tell users what's wrong.
 
 2. Describe which puppet related concept you think is the hardest for new users to grasp.
 
 3. Where did you go to find information to help you in the build process?
 
-  Just used Google searches to find nginx source and configuration info and also to lookup various bash script syntax stuff I couldn't remember.
+  I just used Google to find nginx source and configuration info and also to lookup various bash script syntax stuff I couldn't remember.
 
 4. In a couple paragraphs explain what automation means to you and why it is important to an organization's infrastructure design strategy.
 
@@ -50,8 +54,7 @@ Embracing automation allows organizations to quickly reap these kind of benefits
 
 Have fun and good luck. We look forward to receiving your completed tasks.
 
-Challenge Design
-----------------
+=== Challenge Design ===
 
  * Assumptions
 	* Solution only needs to run on non-Windows operating systems. We'll assume either a REDHAT or Debian based system.
@@ -65,7 +68,6 @@ Challenge Design
  * Usage
 <pre>
 usage: puppet-exercise [-h|--help] <command> <install_dir>
-
 Install an instance of nginx to <install_dir> and configure it to serve on port 8080.
 If <install_dir> is not specified, then nginx will install to ./pup-ex.
 Artifacts are downloaded to ./.pup-ex.
