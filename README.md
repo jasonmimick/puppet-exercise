@@ -72,7 +72,6 @@ Install an instance of nginx to &lt;install_dir&gt; and configure it to serve on
 If &lt;install_dir&gt; is not specified, then nginx will install to ./pup-ex.
 Artifacts are downloaded to ./.pup-ex.
 Details of installation can be found in ./.pup-ex/install.log.
-
 Available commands are:
   status  	Displays information on installation
   install 	Installs nginx and web-site
@@ -86,17 +85,19 @@ Available commands are:
   
   * Parse can validate command line parameters
   * Execute command
-    ..* status	
-	..*Attempt to get status of nginx server running from <install_dir> 
+    	* status	
+			- Attempt to get status of nginx server running from <install_dir> 
            and report to user
-    ..* install	- If already installed, report and do nothing
-		- Remove any contents of ./.pup-ex
-		- Download nginx and web-site into ./.pup-ex
-		- Unpack and build nginx
-		- Install nginx into <install_dir>/nginx-root
-		- Update nginx configuration to listen on port 8080
-		- Copy web-site into <install_dir>/nginx-root/html
-		- Record actions in ./.pup-ex/install.log
-    uninstall	- Stop nginx if running
-		- Remove contents of <install_dir> 
+    	* install	
+			- If already installed, report and do nothing
+			- Remove any contents of ./.pup-ex
+			- Download nginx and web-site into ./.pup-ex
+			- Unpack and build nginx
+			- Install nginx into <install_dir>/nginx-root
+			- Update nginx configuration to listen on port 8080
+			- Copy web-site into <install_dir>/nginx-root/html
+			- Record actions in ./.pup-ex/install.log
+    	* uninstall	
+			- Stop nginx if running
+			- Remove contents of <install_dir> 
 
