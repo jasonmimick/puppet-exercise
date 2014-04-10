@@ -79,9 +79,10 @@ Available commands are:
   
   * Parse can validate command line parameters
   * Execute command
-    status	- Attempt to get status of nginx server running from <install_dir> 
-		  and report to user
-    install	- If already installed, report and do nothing
+    ..* status	
+	..*Attempt to get status of nginx server running from <install_dir> 
+           and report to user
+    ..* install	- If already installed, report and do nothing
 		- Remove any contents of ./.pup-ex
 		- Download nginx and web-site into ./.pup-ex
 		- Unpack and build nginx
