@@ -58,6 +58,7 @@ Challenge Design
 	* development tools - cc, make, etc to build nginx from source 
 
  * Usage
+<pre>
 		$puppet-exercise [-h|--help] <command> <install_dir>
 		Available commands:
 	  		status	Display status
@@ -65,7 +66,7 @@ Challenge Design
 	  		uninstall	Remove the installation
 	
 			  <install_dir> Directory to install nginx into	
-
+</pre>
 
  * Design
 
