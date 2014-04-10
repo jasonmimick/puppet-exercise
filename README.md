@@ -1,6 +1,6 @@
 puppet-exercise
 ===============
-
+<img src="http://docs.puppetlabs.com/files/stylesheets/images/puppet-labs.png"/>
 ### Challenge ###
   Using your language or tool of choice automate the installation of a nginx web server, serving a website over port 8080, and populated using the data found at
 https://github.com/puppetlabs/exercise-webpage. 
@@ -40,10 +40,10 @@ By automating processes organizations are able to reduce risk, prevent accidents
 Successful modern enterprises react quickly and confidently, in part, because they've automated wherever possible. 
 Utilizing a consistent automation framework reduces tangential infrastructure tasks to a commodity. 
 Meaning, the amount of effort spent on tasks such as server and software builds, testing, and deployment is minimized. The task of rapidly scaling up or down can be quantified and thus assuredly executed. 
-Resources can then be redirected to directly effect your businesses' bottom-line. 
+Resources can then focus on tasks which directly effect your businesses' bottom-line. 
 Automation frameworks enable the application of sound engineering practices to operational tasks. 
 Your product, infrastructure, and processes all become "code" - something which technologists understand.
-Additionally, the actual processes of automating things produces a de facto documentation of the process itself. 
+Additionally, the actual process of automating things produces a de facto documentation of the process itself. 
 Rather then encoding processes in Word documents and then implementing in another medium the two are merged. 
 The days of "the spec is outdated" are in the rearview mirror. 
 
