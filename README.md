@@ -1,6 +1,6 @@
 puppet-exercise
-===============
 <img src="http://docs.puppetlabs.com/files/stylesheets/images/puppet-labs.png"/>
+===============
 ### Challenge ###
   Using your language or tool of choice automate the installation of a nginx web server, serving a website over port 8080, and populated using the data found at
 https://github.com/puppetlabs/exercise-webpage. 
