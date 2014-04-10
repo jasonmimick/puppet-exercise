@@ -2,10 +2,12 @@ puppet-exercise
 ===============
 
 Challenge
-1. Using your language or tool of choice automate the installation of a nginx web server, serving a website over port 8080, and populated using the data found athttps://github.com/puppetlabs/exercise-webpage. Please do not perform this exercise on the Windows operating system. Successful completion of this is an executable that reliably sets up the components needed to serve the content requested over port 8080, in a single run of and subsequent executions does not cause harm to functionality.
+---------
+  Using your language or tool of choice automate the installation of a nginx web server, serving a website over port 8080, and populated using the data found athttps://github.com/puppetlabs/exercise-webpage. Please do not perform this exercise on the Windows operating system. Successful completion of this is an executable that reliably sets up the components needed to serve the content requested over port 8080, in a single run of and subsequent executions does not cause harm to functionality.
+
 Attach the code you wrote to your response and answer the following questions. Limit your answers to a single page.
 
-Questions
+### Questions ###
 1. Describe the most difficult/painful hurdle you had to overcome in implementing your solution.
 
   The most difficult part was deciding on whether to install nginx from prebuilt binaries or to build from source. I opted to build from source, since using the various package managers would make it more difficult to control where things install and would also require lots of checking to see what kind of a system the tool is running on (Debian/Red Hat/etc). The most painful hurdle was adding all the error handling to gracefully tell users what's wrong.
@@ -56,22 +58,22 @@ Challenge Design
 	* development tools - cc, make, etc to build nginx from source 
 
  * Usage
-	$puppet-exercise [-h|--help] [-v|--verbose] <command> <install_dir>
+`	$puppet-exercise [-h|--help] [-v|--verbose] <command> <install_dir>
 	Available commands:
 	  status	Display status
 	  install	Install nginx and web-site
 	  uninstall	Remove the installation
 	
 	  <install_dir> Directory to install nginx into	
-
+`
 
  * Design
 
 
   The program flows as follows:
   
-  1) Parse can validate command line parameters
-  2) Execute command
+  * Parse can validate command line parameters
+  * Execute command
     status	- Attempt to get status of nginx server running from <install_dir> 
 		  and report to user
     install	- If already installed, report and do nothing
