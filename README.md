@@ -19,6 +19,9 @@ The most painful hurdle was adding all the error handling to gracefully tell use
 
 2. Describe which puppet related concept you think is the hardest for new users to grasp.
 
+  I would imaging that new users could have some difficulty in applying the abstract notion of a Resource across the many kinds of things on a system, such as services, users, files, etc. They would be quite used to thinking of these as very different things.
+The good news, is that once past this fundamental hurdle the rest of the concepts should fall into place quite easliy.
+
 3. Where did you go to find information to help you in the build process?
 
   I just used Google to find nginx source and configuration info and also to lookup various bash script syntax stuff I couldn't remember.
@@ -99,5 +102,4 @@ Available commands are:
 			- Stop nginx if running
 			- Remove contents of <install_dir> 
 
-==== Questions/Comments? ====
-jmimick@gmail.com
+Questions/Comments?		jmimick@gmail.com
