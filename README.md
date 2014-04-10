@@ -1,4 +1,4 @@
-puppet-exercise <img src="http://puppetlabs.com/sites/default/files/PL_logo_horizontal_RGB_0.svg"/>
+puppet-exercise <img height="50" width="100" style="float: left" src="http://puppetlabs.com/sites/default/files/PL_logo_horizontal_RGB_0.svg"/> 
 ===============
 ### Challenge ###
   Using your language or tool of choice automate the installation of a nginx web server, serving a website over port 8080, and populated using the data found at
