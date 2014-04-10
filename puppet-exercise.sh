@@ -98,7 +98,8 @@ install()
   echo "Updated nginx config to listen on port 8080" >> $arg/puppet-exercise-info
   # copy web-site files to serve
   cd $current_dir
-  cp -R ./.pup-ex/exercise-webpage/ $arg/nginx-root/html/
+  #cp ./.pup-ex/exercise-webpage/index.html $arg/nginx-root/html/index.html
+  rsync -a --exclude=".*" .pup-ex/exercise-webpage/ $arg/nginx-root/html/
   # crank her up
   $arg/nginx-root/sbin/nginx
   echo "Started nginx on port 8080."
