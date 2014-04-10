@@ -67,9 +67,9 @@ Have fun and good luck. We look forward to receiving your completed tasks.
 
  * Usage
 <pre>
-usage: puppet-exercise [-h|--help] <command> <install_dir>
-Install an instance of nginx to <install_dir> and configure it to serve on port 8080.
-If <install_dir> is not specified, then nginx will install to ./pup-ex.
+usage: puppet-exercise [-h|--help] &lt;command&gt; &lt;install_dir&gt;
+Install an instance of nginx to &lt;install_dir&gt; and configure it to serve on port 8080.
+If &lt;install_dir&gt; is not specified, then nginx will install to ./pup-ex.
 Artifacts are downloaded to ./.pup-ex.
 Details of installation can be found in ./.pup-ex/install.log.
 
