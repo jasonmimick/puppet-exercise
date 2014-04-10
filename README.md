@@ -50,7 +50,9 @@ Embracing automation results in a smoother running organization able to quickly 
 
 Have fun and good luck. We look forward to receiving your completed tasks.
 
-### Challenge Design ###
+### Challenge Solution ###
+
+  The solution to this challenge is the 'puppet-exercise.sh' script found in this repository.
 
  * Assumptions
 	* Solution only needs to run on non-Windows operating systems. We'll assume a typical Linux system.
