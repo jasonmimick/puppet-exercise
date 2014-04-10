@@ -58,14 +58,14 @@ Challenge Design
 	* development tools - cc, make, etc to build nginx from source 
 
  * Usage
-`	$puppet-exercise [-h|--help] [-v|--verbose] <command> <install_dir>
-	Available commands:
-	  status	Display status
-	  install	Install nginx and web-site
-	  uninstall	Remove the installation
+		$puppet-exercise [-h|--help] <command> <install_dir>
+		Available commands:
+	  		status	Display status
+	  		install	Install nginx and web-site
+	  		uninstall	Remove the installation
 	
-	  <install_dir> Directory to install nginx into	
-`
+			  <install_dir> Directory to install nginx into	
+
 
  * Design
 
