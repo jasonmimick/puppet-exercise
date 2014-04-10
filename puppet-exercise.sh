@@ -139,7 +139,7 @@ for arg in $options
 do
   index=`expr $index + 1`
   case $arg in
-    -h|--help) usage 
+  -h|--help) usage 
                exit;;
   install) command="install" 
            command_arg=${arguments[index]};;
