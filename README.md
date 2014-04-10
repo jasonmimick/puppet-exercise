@@ -59,13 +59,17 @@ Challenge Design
 
  * Usage
 <pre>
-		$puppet-exercise [-h|--help] <command> <install_dir>
-		Available commands:
-	  		status	Display status
-	  		install	Install nginx and web-site
-	  		uninstall	Remove the installation
-	
-			  <install_dir> Directory to install nginx into	
+usage: puppet-exercise [-h|--help] <command> <install_dir>
+
+Install an instance of nginx to <install_dir> and configure it to serve on port 8080.
+If <install_dir> is not specified, then nginx will install to ./pup-ex.
+Artifacts are downloaded to ./.pup-ex.
+Details of installation can be found in ./.pup-ex/install.log.
+
+Available commands are:
+  status  	Displays information on installation
+  install 	Installs nginx and web-site
+  uninstall	Removes the installation
 </pre>
 
  * Design
