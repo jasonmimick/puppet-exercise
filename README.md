@@ -12,10 +12,9 @@ Attach the code you wrote to your response and answer the following questions. L
 ### Questions ###
 1. Describe the most difficult/painful hurdle you had to overcome in implementing your solution.
 
-  The most difficult part was deciding on whether to install nginx from prebuilt binaries or to build from source. 
+  The most difficult part was deciding on whether to install nginx from prebuilt binaries or build from source. 
 I opted to build from source, since using the various package managers would make it more difficult to control where things install and would also require lots of checking to see what kind of a system the tool is running on (Debian/Red Hat/etc). 
-This choice does mean there are dependecies on development tools (gcc, make, etc). To address this the script checks for such dependencies are reports if they are not found.
-The most painful hurdle was adding all the error handling to gracefully tell users what's wrong.
+This choice does mean there are dependecies on development tools (gcc, make, etc). To address this the script checks for such dependencies and reports if they are not found.
 
 2. Describe which puppet related concept you think is the hardest for new users to grasp.
 
@@ -44,7 +43,7 @@ Meaning, the amount of effort spent on tasks such as server and software builds,
 Resources can then be redirected to directly effect your businesses' bottom-line. 
 Automation frameworks enable the application of sound engineering practices to operational tasks. 
 Your product, infrastructure, and processes all become "code" - something which technologists understand.
-Additionally, the actual processes of automating things produces a defacto documentation of the process itself. 
+Additionally, the actual processes of automating things produces a de facto documentation of the process itself. 
 Rather then encoding processes in Word documents and then implementing in another medium the two are merged. 
 The days of "the spec is outdated" are in the rearview mirror. 
 
@@ -55,7 +54,7 @@ Embracing automation results in a smoother running organization able to quickly 
 
 Have fun and good luck. We look forward to receiving your completed tasks.
 
-=== Challenge Design ===
+### Challenge Design ###
 
  * Assumptions
 	* Solution only needs to run on non-Windows operating systems. We'll assume a typical Linux system.
@@ -84,8 +83,8 @@ Available commands are:
 
   The program flows as follows:
   
-  * Parse can validate command line parameters
-  * Execute command
+  * Parse and validate command line parameters
+  * Execute command, if found
     	* status	
 			- Attempt to get status of nginx server running from <install_dir> 
            and report to user
