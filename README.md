@@ -12,12 +12,12 @@ Attach the code you wrote to your response and answer the following questions. L
 1. Describe the most difficult/painful hurdle you had to overcome in implementing your solution.
 
   The most difficult part was deciding on whether to install nginx from prebuilt binaries or build from source. 
-I opted to build from source, since using the various package managers would make it more difficult to control where things install and would also require lots of checking to see what kind of a system the tool is running on (Debian/Red Hat/etc). 
-This choice does mean there are dependecies on development tools (gcc, make, etc). To address this the script checks for such dependencies and reports if they are not found.
+I opted to build from source, since using the various package managers would make it more difficult to control where things install and require lots of checking to see what kind of a system the tool is running on (Debian/Red Hat/etc). 
+This choice means there are dependecies on development tools such as gcc, make, etc. The solution checks for these dependencies and reports if they are not found.
 
 2. Describe which puppet related concept you think is the hardest for new users to grasp.
 
-  I would imaging that new users could have some difficulty in applying the abstract notion of a Resource across the many kinds of things on a system, such as services, users, files, etc. They would be quite used to thinking of these as very different things.
+  I would imagine that new users could have some difficulty in applying the abstract notion of a "Resource" across many kinds of objects on a system, such as services, users, files, etc. Many users would be accustomed to thinking of these objects as quite different.
 The good news, is that once past this fundamental hurdle the rest of the concepts should fall into place quite easliy.
 
 3. Where did you go to find information to help you in the build process?
@@ -27,28 +27,25 @@ The good news, is that once past this fundamental hurdle the rest of the concept
 4. In a couple paragraphs explain what automation means to you and why it is important to an organization's infrastructure design strategy.
 
   Automation is the process of enabling systems, software, and processes to act independently. 
-Consider the scenario of launching a new software product. Typically this requires multiple new servers for development and testing. 
+Consider the scenario of launching a new software product; typically this requires multiple new servers for development and testing. 
 In a non-automated world, dozens of manual steps are required - allocation of hardware and operating systems, application of policies, dependecy checks, etc. 
 These tasks then need to be repeated multiple times for each server.
 Automation frameworks reduce tasks like this to "pushing a button". 
 
-  Automation is important.
-We're prone to make mistakes when attempting to repeat complicated technical tasks. 
-That's why we have computers.
+  We're prone to make mistakes when attempting to repeat complicated technical tasks. 
+That's why we have computers and why automation is so important.
 By automating processes organizations are able to reduce risk, prevent accidents, and focus on core business goals rather than "housework". 
 Successful modern enterprises react quickly and confidently, in part, because they've automated wherever possible. 
-Utilizing a consistent automation framework reduces tangential infrastructure tasks to a commodity. 
-Meaning, the amount of effort spent on tasks such as server and software builds, testing, and deployment is minimized. The task of rapidly scaling up or down can be quantified and thus assuredly executed. 
-Resources can then focus on tasks which directly effect your businesses' bottom-line. 
-Automation frameworks enable the application of sound engineering practices to operational tasks. 
+In utilizing a consistent automation framework tangential infrastructure tasks are commoditized.Meaning, the amount of effort spent on tasks such as server and software builds, testing, and deployment is minimized. The task of rapidly scaling up or down can be quantified and thus assuredly executed. 
+Automation frameworks also enable the application of sound engineering practices to operational tasks. 
 Your product, infrastructure, and processes all become "code" - something which technologists understand.
 Additionally, the actual process of automating things produces a de facto documentation of the process itself. 
-Rather then encoding processes in Word documents and then implementing in another medium the two are merged. 
+Rather then encoding processes in Word documents and then implementing them in another medium, the two are merged. 
 The days of "the spec is outdated" are in the rearview mirror. 
 
   It is quick to see the potential impact of automation frameworks. 
 Not only are errors reduced and new features rolled out quicker, the effort needed to manage infrastructure is reduced. 
-Embracing automation results in a smoother running organization able to quickly meet the demands of customers and be successful.
+Embracing automation results in a smoother running organization able to quickly and successfully meet the demands of customers.
  
 
 Have fun and good luck. We look forward to receiving your completed tasks.
