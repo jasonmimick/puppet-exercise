@@ -25,13 +25,13 @@ The most painful hurdle was adding all the error handling to gracefully tell use
 
 4. In a couple paragraphs explain what automation means to you and why it is important to an organization's infrastructure design strategy.
 
-  Information Technology Automation is the process of enabling systems, software, and processes to act independently. 
+  Automation is the process of enabling systems, software, and processes to act independently. 
 Consider the scenario of launching a new software product. Typically this requires multiple new servers for development and testing. 
 In a non-automated world, dozens of manual steps are required - allocation of hardware and operating systems, application of policies, dependecy checks, etc. 
 These tasks then need to be repeated multiple times for each server.
 Automation frameworks reduce tasks like this to "pushing a button". 
 
-Automation is important.
+  Automation is important.
 We're prone to make mistakes when attempting to repeat complicated technical tasks. 
 That's why we have computers.
 By automating processes organizations are able to reduce risk, prevent accidents, and focus on core business goals rather than "housework". 
@@ -46,7 +46,7 @@ Rather then encoding processes in Word documents and then implementing in anothe
 The days of "the spec is outdated" are in the rearview mirror. 
 
   It is quick to see the potential impact of automation frameworks. 
-Not only are errors reduced and new features rolled out quicker, the amount of resources needed to manage infrastructure is reduced. 
+Not only are errors reduced and new features rolled out quicker, the effort needed to manage infrastructure is reduced. 
 Embracing automation results in a smoother running organization able to quickly meet the demands of customers and be successful.
  
 
@@ -55,8 +55,8 @@ Have fun and good luck. We look forward to receiving your completed tasks.
 === Challenge Design ===
 
  * Assumptions
-	* Solution only needs to run on non-Windows operating systems. We'll assume either a REDHAT or Debian based system.
-	* "an executable" - since puppet is an interpreted Ruby 'script' we'll build an 'executable' bash script
+	* Solution only needs to run on non-Windows operating systems. We'll assume a typical Linux system.
+	* "an executable" - since puppet is a Ruby 'script' we'll build an 'executable' bash script
 
  * Dependencies
 	* bash	- solution is a bash shell executable
@@ -99,3 +99,5 @@ Available commands are:
 			- Stop nginx if running
 			- Remove contents of <install_dir> 
 
+==== Questions/Comments? ====
+jmimick@gmail.com
