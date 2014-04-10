@@ -18,7 +18,7 @@ This choice means there are dependecies on development tools such as gcc, make, 
 2. Describe which puppet related concept you think is the hardest for new users to grasp.
 
   I would imagine that new users could have some difficulty in applying the abstract notion of a "Resource" across many kinds of objects on a system, such as services, users, files, etc. Many users would be accustomed to thinking of these objects as quite different.
-The good news, is that once past this fundamental hurdle the rest of the concepts should fall into place quite easliy.
+The good news is that once past this fundamental hurdle the rest of the concepts should fall into place quite easliy.
 
 3. Where did you go to find information to help you in the build process?
 
@@ -36,10 +36,10 @@ Automation frameworks reduce tasks like this to "pushing a button".
 That's why we have computers and why automation is so important.
 By automating processes organizations are able to reduce risk, prevent accidents, and focus on core business goals rather than "housework". 
 Successful modern enterprises react quickly and confidently, in part, because they've automated wherever possible. 
-In utilizing a consistent automation framework tangential infrastructure tasks are commoditized.Meaning, the amount of effort spent on tasks such as server and software builds, testing, and deployment is minimized. The task of rapidly scaling up or down can be quantified and thus assuredly executed. 
+In utilizing a consistent automation framework tangential infrastructure tasks are commoditized. Meaning, the amount of effort spent on tasks such as server and software builds, testing, and deployment is minimized. The task of rapidly scaling up or down can be quantified and thus assuredly executed. 
 Automation frameworks also enable the application of sound engineering practices to operational tasks. 
 Your product, infrastructure, and processes all become "code" - something which technologists understand.
-Additionally, the actual process of automating things produces a de facto documentation of the process itself. 
+Additionally, the actual process of automating things produces de facto documentation of the process itself. 
 Rather then encoding processes in Word documents and then implementing them in another medium, the two are merged. 
 The days of "the spec is outdated" are in the rearview mirror. 
 
@@ -92,9 +92,13 @@ Available commands are:
 			- Install nginx into &lt;install_dir&gt;/nginx-root
 			- Update nginx configuration to listen on port 8080
 			- Copy web-site into &lt;install_dir&gt;/nginx-root/html
-			- Record actions in ./.pup-ex/install.log nad &lt;install_dir&gt;/puppet-exersice-info
+			- Record actions in ./.pup-ex/install.log and &lt;install_dir&gt;/puppet-exersice-info
     	* uninstall	
 			- Stop nginx if running
-			- Remove contents of <install_dir> 
+			- Remove contents of &lt;install_dir&gt; 
 
+ * Future
+
+  The most obvious feature to add would be to parameterize the web server port and the sources for nginx and the web-site. Additional TODOs could be to support OS X (get nginx build to work and refactor use of 'readlink -f').
+ 
 Questions/Comments?		jmimick@gmail.com
