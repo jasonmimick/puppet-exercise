@@ -53,7 +53,7 @@ status()
   cat $dir/puppet-exercise-info
   if [ -e $dir/nginx-root/logs/nginx.pid ]; then
     nginx_pid=$(cat $dir/nginx-root/logs/nginx.pid)
-    started_at=$(ps -o stime= -p 27409)
+    started_at=$(ps -o stime= -p $nginx_pid)
     echo "nginx pid=$nginx_pid running, started at $started_at"
   else
     echo "nginx not running from $arg/nginx-root"
