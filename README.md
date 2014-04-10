@@ -20,26 +20,31 @@ Attach the code you wrote to your response and answer the following questions. L
 
 4. In a couple paragraphs explain what automation means to you and why it is important to an organization's infrastructure design strategy.
 
-  Automation is the process of enabling systems, software, and processes to act independently. For example, consider the scenario of a developement team starting a new project and requiring a new development server. 
+  Information Technology Automation is the process of enabling systems, software, and processes to act independently. 
+Consider the scenario of launching a new web-based product. and requiring a new development server. 
 In a non-automated world, dozens of manual steps would be required - allocation of hardware, operating system installation and update, application of corporate security policies, dependecy checks, etc. 
 Automation frameworks reduce tasks like this to "pushing a button". 
 Each step in a process is automated and made repeatable. Ideally, these repeatable processes are packaged into small tasks which can be joined together to quickly build new more complex automations.
 
-  Automation is important for a variety of reasons, the first and foremost however is we humans are prone to make mistakes - especially when attempting to repeat a complex tasks. 
+  Automation is important.
+We're prone to make mistakes when attempting to repeat complicated technical tasks. 
+That's why we have computers.
 By automating processes organizations are able to reduce risk, prevent accidents, and focus on core business goals rather than "housework". 
-Modern enterprises need to be able to react quickly and confidently to be successful. 
-By utilizing a consistent automation framework tangential tasks can be commoditized to a degree. 
-Meaning, the amount of effort spent on tasks such as software builds, testing and deployment is reduced. The task of rapidly scaling up or down can be quantified and thus assuredly executed. 
-Additionally, automation frameworks enable sound engineering practices to be applied to operational tasks. 
+Successful modern enterprises react quickly and confidently. 
+Utilizing a consistent automation framework commodisizes tangential tasks. 
+Meaning, the amount of effort spent on tasks such as software builds, testing, and deployment is minimized. The task of rapidly scaling up or down can be quantified and thus assuredly executed. 
+Automation frameworks enable sound engineering practices to be applied to operational tasks. 
 Your product, your infrastructure, and your processes all become "code" - something which technologists understand.
-
-  It is quick to see the potential impact of automation frameworks. 
-Not only are errors reduced and new features rolled out quicker, the amount of resources needed to manage infrastructure is reduced. 
-These resources can then be redirected to tasks which directly effect your businesses bottom-line. 
-Organizations can also benefit from the auto-documentation which results from automation. 
+These resources can then be redirected to directly effect your businesses bottom-line. 
+A side-line, but important, benefit is the auto-documentation which results from automation. 
 The actual processes of automating things produces a defacto documentation of the process itself. 
 Rather then encoding processes in Word documents and then implementing in another medium the two are merged. 
 The days of "the spec is outdated" are in the rearview mirror. 
+
+  aoisdjaoidjaoidjaosi
+  It is quick to see the potential impact of automation frameworks. 
+Not only are errors reduced and new features rolled out quicker, the amount of resources needed to manage infrastructure is reduced. 
+
 Embracing automation allows organizations to quickly reap these kind of benefits leading to happier employees and customers.  
   
 
