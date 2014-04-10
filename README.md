@@ -27,23 +27,21 @@ The most painful hurdle was adding all the error handling to gracefully tell use
 
   Information Technology Automation is the process of enabling systems, software, and processes to act independently. 
 Consider the scenario of launching a new software product. Typically this requires multiple new servers for development and testing. 
-In a non-automated world, dozens of manual steps would be required - allocation of hardware, operating system installation and update, application of corporate security policies, dependecy checks, etc. 
-These tasks would then need to be repeated multiple times for each server.
+In a non-automated world, dozens of manual steps are required - allocation of hardware and operating systems, application of policies, dependecy checks, etc. 
+These tasks then need to be repeated multiple times for each server.
 Automation frameworks reduce tasks like this to "pushing a button". 
-Each step in a process is automated and made repeatable. Ideally, these repeatable processes are packaged into small tasks which can be joined together to quickly build new more complex automations.
 
-  Automation is important.
+Automation is important.
 We're prone to make mistakes when attempting to repeat complicated technical tasks. 
 That's why we have computers.
 By automating processes organizations are able to reduce risk, prevent accidents, and focus on core business goals rather than "housework". 
 Successful modern enterprises react quickly and confidently, in part, because they've automated wherever possible. 
 Utilizing a consistent automation framework reduces tangential infrastructure tasks to a commodity. 
 Meaning, the amount of effort spent on tasks such as server and software builds, testing, and deployment is minimized. The task of rapidly scaling up or down can be quantified and thus assuredly executed. 
-These resources can then be redirected to directly effect your businesses bottom-line. 
-Automation frameworks enable sound engineering practices to be applied to operational tasks. 
-Your product, your infrastructure, and your processes all become "code" - something which technologists understand.
-An additional benefit is the auto-documentation which results from automation. 
-The actual processes of automating things produces a defacto documentation of the process itself. 
+Resources can then be redirected to directly effect your businesses' bottom-line. 
+Automation frameworks enable the application of sound engineering practices to operational tasks. 
+Your product, infrastructure, and processes all become "code" - something which technologists understand.
+Additionally, the actual processes of automating things produces a defacto documentation of the process itself. 
 Rather then encoding processes in Word documents and then implementing in another medium the two are merged. 
 The days of "the spec is outdated" are in the rearview mirror. 
 
