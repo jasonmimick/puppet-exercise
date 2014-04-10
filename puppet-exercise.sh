@@ -90,7 +90,7 @@ install()
   cd nginx-1.5.13 
   ./configure --prefix=$arg/nginx-root \
     --without-http_rewrite_module \
-    --without-http_gzip_module 
+    --without-http_gzip_module \ 
     --without-http_proxy_module \
 	> $install_log 2>&1
   make >> $install_log 2>&1
