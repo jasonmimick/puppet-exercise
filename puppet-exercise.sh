@@ -119,6 +119,11 @@ install()
 
 uninstall() 
 {
+
+  if [[ ! -x $1/nginx-root/sbin/nginx ]]; then
+	echo "nginx not found in $1\nIs $1 a valid puppet-exercise installation?"
+    return
+  fi
   $1/nginx-root/sbin/nginx -s stop
   rm -rf $1 
 }
