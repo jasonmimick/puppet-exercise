@@ -40,6 +40,7 @@ check_dependencies()
     fi
   done
 }
+
 # report the status of a puppet-exercise.sh installation
 # usage: status <path to puppet-exercise install>
 status()
@@ -87,12 +88,16 @@ install()
   # unpack and build nginx
   tar xf nginx-1.5.13.tar.gz
   cd nginx-1.5.13 
-  ./configure --prefix=$arg/nginx-root --without-http_rewrite_module --without-http_gzip_module --without-http_proxy_module \
+  ./configure --prefix=$arg/nginx-root \
+    --without-http_rewrite_module \
+    --without-http_gzip_module 
+    --without-http_proxy_module \
 	> $install_log 2>&1
   make >> $install_log 2>&1
   make install >> $install_log 2>&1
   # update nginx config
-  sed -i 's/        listen       80;/        listen       8080;/' $arg/nginx-root/conf/nginx.conf
+  sed -i 's/        listen       80;/        listen       8080;/' \
+    $arg/nginx-root/conf/nginx.conf
   echo "Updated nginx config to listen on port 8080" >> $arg/puppet-exercise-info
   # copy web-site files to serve
   cd $current_dir
@@ -135,10 +140,10 @@ do
                exit;;
   install) command="install" 
            command_arg=${arguments[index]};;
-  uninstall)  command="uninstall"
-           command_arg=${arguments[index]};;
-      status) command="status"
-           command_arg=${arguments[index]};;
+  uninstall) command="uninstall"
+             command_arg=${arguments[index]};;
+  status) command="status"
+          command_arg=${arguments[index]};;
   esac
 done
 
